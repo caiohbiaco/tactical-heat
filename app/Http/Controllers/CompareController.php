@@ -1,7 +1,4 @@
 <?php
-// ══════════════════════════════════════════════════════════════════════════════
-// app/Http/Controllers/CompareController.php
-// ══════════════════════════════════════════════════════════════════════════════
 
 namespace App\Http\Controllers;
 
@@ -17,14 +14,12 @@ class CompareController extends Controller
         private RiskAnalyzer $risk
     ) {}
 
-    /** GET /compare — exibe o formulário */
     public function form()
     {
         $sports = Sport::all();
         return view('compare.form', compact('sports'));
     }
 
-    /** POST /compare — processa e exibe resultado */
     public function result(Request $request)
     {
         $request->validate([

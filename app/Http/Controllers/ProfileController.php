@@ -23,7 +23,7 @@ class ProfileController extends Controller
         return view('profile.show', compact('user', 'stats'));
     }
 
-    /** POST /profile/info — atualiza nome, email e bio */
+
     public function updateInfo(Request $request)
     {
         $user = auth()->user();
@@ -43,7 +43,7 @@ class ProfileController extends Controller
         return back()->with('success_info', 'Informações atualizadas com sucesso.');
     }
 
-    /** POST /profile/password — altera senha */
+    
     public function updatePassword(Request $request)
     {
         $request->validate([
@@ -64,7 +64,7 @@ class ProfileController extends Controller
         return back()->with('success_password', 'Senha alterada com sucesso.')->with('tab', 'password');
     }
 
-    /** POST /profile/avatar — faz upload da foto */
+    
     public function updateAvatar(Request $request)
     {
         $request->validate([
@@ -85,7 +85,7 @@ class ProfileController extends Controller
         return back()->with('success_avatar', 'Foto de perfil atualizada.');
     }
 
-    /** DELETE /profile/avatar — remove a foto */
+    
     public function removeAvatar()
     {
         $user = auth()->user();
@@ -99,7 +99,7 @@ class ProfileController extends Controller
         return back()->with('success_avatar', 'Foto removida.');
     }
 
-    /** DELETE /profile — exclui a conta */
+    
     public function destroy(Request $request)
     {
         $request->validate([
@@ -110,7 +110,7 @@ class ProfileController extends Controller
 
         Auth::logout();
 
-        // Remove avatar do storage
+        
         if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
             Storage::disk('public')->delete($user->avatar);
         }
