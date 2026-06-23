@@ -12,7 +12,7 @@ class ReportController extends Controller
 {
     public function __construct(private ReportGenerator $generator) {}
 
-    //gera o relatório via IA//
+    //gera o relatório via IA
     public function generate(Search $search)
     {
         abort_if($search->user_id !== auth()->id(), 403);
@@ -27,7 +27,7 @@ class ReportController extends Controller
         }
     }
 
-    //exibe o relatório na tela//
+    //exibe o relatório na tela
     public function show(Search $search)
     {
         abort_if($search->user_id !== auth()->id(), 403);
@@ -43,7 +43,7 @@ class ReportController extends Controller
         return view('results.report', compact('search', 'report'));
     }
 
-    //gera e baixa o PDF //
+    //gera e baixa o PDF
     public function pdf(Search $search)
     {
         abort_if($search->user_id !== auth()->id(), 403);
