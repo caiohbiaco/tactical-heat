@@ -134,4 +134,3 @@ Acesse: http://127.0.0.1:8000
 - **Autenticação:** Laravel Breeze
 
 ---
->>>>>>> 1d4ede8fada069c2e7fd365ef2cd947daf1ab397
