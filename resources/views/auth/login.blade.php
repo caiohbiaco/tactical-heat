@@ -6,11 +6,10 @@
 @push('styles')
 <style>
 .auth-wrap {
-    min-height: calc(100vh - 60px);
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -2.5rem;
 }
 .auth-card {
     width: 100%;
@@ -58,6 +57,19 @@
     margin-top: 4px;
 }
 .btn-full { width: 100%; justify-content: center; }
+
+/* Centralização total na página de auth */
+.auth-page .app-shell {
+    padding-left: 0 !important;
+}
+.auth-page .main-wrap {
+    padding: 0;
+    max-width: 100%;
+    height: calc(100vh - 56px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 </style>
 @endpush
 
@@ -114,3 +126,14 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    document.body.classList.add('auth-page');
+    document.body.classList.remove('sidebar-pinned');
+    localStorage.removeItem('th_sidebar_pinned');
+    document.getElementById('sidebar')?.remove();
+    document.getElementById('sidebarTrigger')?.remove();
+    document.querySelector('.sidebar-toggle-btn')?.remove();
+</script>
+@endpush

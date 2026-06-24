@@ -102,10 +102,7 @@ class ClimateService
         return $result;
     }
 
-    // ── Projeção: UMA única chamada buscando 10 anos de uma vez ───────────
-    // Antes eram 10 chamadas em loop — isso causava timeout.
-    // Agora buscamos o período completo de 10 anos em uma requisição só
-    // e calculamos a média por mês do calendário.
+    
     private function getProjectedData(float $lat, float $lon): array
     {
         $currentYear = (int) date('Y');
